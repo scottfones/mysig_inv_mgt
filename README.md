@@ -2,9 +2,12 @@
 
 ```mermaid
 stateDiagram-v2
-  [*] --> Search (default)
+  [*] --> Search
   [*] --> Add
   Search --> Results
-  Results --> View
-  Results --> Edit / Delete
+  state Results {
+    View
+    Edit 
+    Delete
+  }
 ```
