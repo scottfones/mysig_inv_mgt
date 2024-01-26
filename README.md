@@ -23,8 +23,8 @@ stateDiagram-v2
 ```mermaid
 erDiagram
   COOKIECUTTER }|--|| BIN
-  COOKIECUTTER }|--|| BIN
-  COOKIECUTTER }|--|| BIN
+  COOKIECUTTER }|--|| COLOR
+  COOKIECUTTER }|--|| MATERIAL
   COOKIECUTTER {
     int id PK
     int binId FK
