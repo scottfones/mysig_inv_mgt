@@ -22,7 +22,9 @@ stateDiagram-v2
 
 ```mermaid
 erDiagram
-  COOKIECUTTER }|--|| BIN
+  COOKIECUTTER }|--|| BIN: has
+  COOKIECUTTER }|--|| COLOR: has
+  COOKIECUTTER }|--|| MATERIAL: has
   COOKIECUTTER {
     int id PK
     int binId FK
@@ -37,34 +39,12 @@ erDiagram
     int binId PK
     string name
   }
-  COOKIECUTTER }|--|| COLOR
   COLOR {
     int colorID PK
     string name
   }
-  COOKIECUTTER }|--|| MATERIAL
   MATERIAL {
     int materialId PK
-    name
+    string name
   }
-```
-
-```mermaid
-erDiagram
-    CUSTOMER ||--o{ ORDER : places
-    CUSTOMER {
-        string name
-        string custNumber
-        string sector
-    }
-    ORDER ||--|{ LINE-ITEM : contains
-    ORDER {
-        int orderNumber
-        string deliveryAddress
-    }
-    LINE-ITEM {
-        string productCode
-        int quantity
-        float pricePerUnit
-    }
 ```
