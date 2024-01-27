@@ -4,6 +4,54 @@ from pathlib import Path
 import plotly.graph_objects as go
 
 
+def plot_heights(heights_x: list[float], heights_y: list[int]):
+    fig = go.Figure(
+        data=[
+            go.Bar(
+                x=heights_x,
+                y=heights_y,
+                text=heights_y,
+                textposition="auto",
+                width=0.25,
+            )
+        ]
+    )
+    fig.update_layout(
+        title_text="Cookie Cutter Height Distribution",
+        xaxis=dict(
+            title="Height (inches)",
+        ),
+        yaxis=dict(
+            title="Count",
+        ),
+    )
+    fig.show()
+
+
+def plot_widths(widths_x: list[float], widths_y: list[int]):
+    fig = go.Figure(
+        data=[
+            go.Bar(
+                x=widths_x,
+                y=widths_y,
+                text=widths_y,
+                textposition="auto",
+                width=0.25,
+            )
+        ]
+    )
+    fig.update_layout(
+        title_text="Cookie Cutter Width Distribution",
+        xaxis=dict(
+            title="Width (inches)",
+        ),
+        yaxis=dict(
+            title="Count",
+        ),
+    )
+    fig.show()
+
+
 if __name__ == "__main__":
     csv_path = Path("./Mysig Cookie Cutters - Sheet1.csv")
 
@@ -80,19 +128,19 @@ if __name__ == "__main__":
     for color in sorted(list(colors)):
         print(f"\t{color}")
 
-    heights_counter = Counter(heights_list)
-    print(f"\nheights ({len(heights_counter)}):")
     heights_x = []
     heights_y = []
+    heights_counter = Counter(heights_list)
+    print(f"\nheights ({len(heights_counter)}):")
     for height, count in sorted(heights_counter.items()):
         heights_x.append(height)
         heights_y.append(count)
         print(f"\t{height:5}  ({count:3})")
 
-    widths_counter = Counter(widths_list)
-    print(f"\nwidths ({len(widths_counter)}):")
     widths_x = []
     widths_y = []
+    widths_counter = Counter(widths_list)
+    print(f"\nwidths ({len(widths_counter)}):")
     for width, count in sorted(widths_counter.items()):
         widths_x.append(width)
         widths_y.append(count)
@@ -100,46 +148,5 @@ if __name__ == "__main__":
 
     print(f"\nbin and sequence count: {seq_count}")
 
-    fig = go.Figure(
-        data=[
-            go.Bar(
-                x=heights_x,
-                y=heights_y,
-                text=heights_y,
-                textposition="auto",
-                width=0.25,
-            )
-        ]
-    )
-    fig.update_layout(
-        title_text="Cookie Cutter Height Distribution",
-        xaxis=dict(
-            title="Height (inches)",
-        ),
-        yaxis=dict(
-            title="Count",
-        ),
-    )
-    fig.show()
-
-    fig = go.Figure(
-        data=[
-            go.Bar(
-                x=widths_x,
-                y=widths_y,
-                text=widths_y,
-                textposition="auto",
-                width=0.25,
-            )
-        ]
-    )
-    fig.update_layout(
-        title_text="Cookie Cutter Width Distribution",
-        xaxis=dict(
-            title="Width (inches)",
-        ),
-        yaxis=dict(
-            title="Count",
-        ),
-    )
-    fig.show()
+    plot_heights(heights_x, heights_y)
+    plot_widths(widths_x, widths_y)
