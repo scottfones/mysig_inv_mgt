@@ -35,7 +35,8 @@ if __name__ == "__main__":
             print(f"Keywords: {desc}, {notes}")
 
             # Material
-            materials.add(row[3])
+            if row[3]:
+                materials.add(row[3])
             print(f"Material: {row[3]}")
 
             # Color
