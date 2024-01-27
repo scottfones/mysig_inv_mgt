@@ -20,7 +20,7 @@ stateDiagram-v2
 
 ## Backend
 
-The backend uses [axum](https://github.com/tokio-rs/axum) to facilitate [GraphQL](https://github.com/async-graphql/async-graphql) queries against a [PostgresSQL](https://www.postgresql.org/) database via [SeaORM](https://www.sea-ql.org/SeaORM/). The current schema corresponds to the following diagram.
+The backend uses [axum](https://github.com/tokio-rs/axum) to facilitate [GraphQL](https://github.com/async-graphql/async-graphql) queries against a [Postgres](https://www.postgresql.org/) database via [SeaORM](https://www.sea-ql.org/SeaORM/). The current schema corresponds to the following diagram.
 
 ```mermaid
 erDiagram
