@@ -22,7 +22,8 @@ if __name__ == "__main__":
 
             # Bin Name
             bin_name = " ".join(row[0].splitlines()).replace("  ", " ")
-            bin_names.add(bin_name)
+            if bin_name:
+                bin_names.add(bin_name)
             print(f"Bin Name: {bin_name}")
 
             # Bin and Sequence Count
@@ -41,7 +42,8 @@ if __name__ == "__main__":
 
             # Color
             color = " ".join(row[4].splitlines()).replace("  ", " ")
-            colors.add(color)
+            if color:
+                colors.add(color)
             print(f"Color: {color}")
 
             # Height and Width
@@ -67,18 +69,15 @@ if __name__ == "__main__":
 
     print(f"bin names ({len(bin_names)}):")
     for name in sorted(list(bin_names)):
-        if name:
-            print(f"\t{name}")
+        print(f"\t{name}")
 
     print(f"\nmaterials ({len(materials)}):")
     for mat in sorted(list(materials)):
-        if mat:
-            print(f"\t{mat}")
+        print(f"\t{mat}")
 
     print(f"\ncolors ({len(colors)}):")
     for color in sorted(list(colors)):
-        if color:
-            print(f"\t{color}")
+        print(f"\t{color}")
 
     heights_counter = Counter(heights_list)
     print(f"\nheights ({len(heights_counter)}):")
