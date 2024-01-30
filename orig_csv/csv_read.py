@@ -141,7 +141,7 @@ if __name__ == "__main__":
         print(f"\t{bin}  ({count})")
 
     materials_counter = Counter(materials)
-    print(f"\ncolors ({len(materials_counter)}, {sum(materials_counter.values())}):")
+    print(f"\nmaterials ({len(materials_counter)}, {sum(materials_counter.values())}):")
     for mat, count in sorted(materials_counter.items()):
         print(f"\t{mat}  ({count})")
 
