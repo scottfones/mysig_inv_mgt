@@ -67,13 +67,11 @@ if __name__ == "__main__":
             # Row Number
             if i == 0:
                 continue
-            print(f"CSV Row: {i+1}")
 
             # Bin Name
             bin_name = " ".join(row[0].splitlines()).replace("  ", " ")
             if bin_name:
                 bin_names.add(bin_name)
-            print(f"Bin Name: {bin_name}")
 
             # Bin and Sequence Count
             if row[1]:
@@ -82,18 +80,19 @@ if __name__ == "__main__":
             # Description
             desc = " ".join(row[2].splitlines()).replace("/", ",").replace("  ", " ")
             notes = " ".join(row[7].splitlines()).replace("/", ",").replace("  ", " ")
-            print(f"Keywords: {desc}, {notes}")
+            quantity = 1
+            if len(desc) > 3 and desc[-3] == "(" and desc[-1] == ")":
+                quantity = desc[-2]
+                desc = desc[:-3]
 
             # Material
             if row[3]:
                 materials.add(row[3])
-            print(f"Material: {row[3]}")
 
             # Color
             color = " ".join(row[4].splitlines()).replace("  ", " ")
             if color:
                 colors.add(color)
-            print(f"Color: {color}")
 
             # Height and Width
             height, width = (
@@ -109,8 +108,14 @@ if __name__ == "__main__":
             heights_list.append(height)
             widths_list.append(width)
 
+            print(f"CSV Row: {i+1}")
+            print(f"Bin Name: {bin_name}")
+            print(f"Quantity: {quantity}")
+            print(f"Keywords: {desc}, {notes}")
             print(f"Height: {height}")
             print(f"Width: {width}\n")
+            print(f"Material: {row[3]}")
+            print(f"Color: {color}")
 
             # Picture
 
@@ -148,5 +153,5 @@ if __name__ == "__main__":
 
     print(f"\nbin and sequence count: {seq_count}")
 
-    plot_heights(heights_x, heights_y)
-    plot_widths(widths_x, widths_y)
+    # plot_heights(heights_x, heights_y)
+    # plot_widths(widths_x, widths_y)
