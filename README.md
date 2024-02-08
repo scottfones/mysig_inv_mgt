@@ -24,37 +24,35 @@ The backend uses [axum](https://github.com/tokio-rs/axum) to facilitate [GraphQL
 
 ```mermaid
 erDiagram
-  COOKIECUTTER }|--|| ACCENT: has
-  COOKIECUTTER }|--|| BIN: has
-  COOKIECUTTER }|--|| COLOR: has
-  COOKIECUTTER }|--|| MATERIAL: has
-  COOKIECUTTER {
-    int id PK
-    int binId FK
-    int colorId FK
-    int accentId FK
-    string keywords
-    float height
-    float width
-    int materialId FK
-    int quantity 
-    string imageFile
-  }
-  ACCENT {
-    int accentId PK
-    string name
+  KEYWORD {
+    uuid id PK
+    string keyword PK
   }
   BIN {
-    int binId PK
-    string name
+    uuid id PK
+    string bin_name PK
   }
   COLOR {
-    int colorID PK
-    string name
+    uuid id PK
+    string color PK
+    string accent
+  }
+  SIZE {
+    uuid id PK
+    float height PK
+    float width PK
   }
   MATERIAL {
-    int materialId PK
-    string name
+    uuid id PK
+    string material PK
+  }
+  IMG {
+    uuid id PK
+    string img_file PK
+  }
+  QUANTITY {
+    uuid id PK
+    int count PK
   }
 ```
 
